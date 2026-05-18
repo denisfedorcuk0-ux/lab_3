@@ -1,15 +1,51 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class Main {
+
+    public static void main(String[] args) {
+        SportsEquipment[] equipmentArray = {
+                new SportsEquipment("Футбольний м'яч", "Футбол", 1200.00, 420, 5),
+                new SportsEquipment("Баскетбольний м'яч", "Баскетбол", 1500.00, 620, 4),
+                new SportsEquipment("Гантель 10кг", "Фітнес", 850.00, 10000, 5),
+                new SportsEquipment("Волейбольний м'яч", "Волейбол", 950.00, 420, 3),
+                new SportsEquipment("Ракетка для тенісу", "Теніс", 3200.00, 280, 5),
+                new SportsEquipment("М'яч для регбі", "Регбі", 1400.00, 420, 4)
+        };
+
+        System.out.println("--- Початковий масив об'єктів: ---");
+        printArray(equipmentArray);
+
+        Arrays.sort(equipmentArray, Comparator
+                .comparingInt(SportsEquipment::getWeightGrams)
+                .thenComparing(Comparator.comparingInt(SportsEquipment::getRating).reversed())
+        );
+
+        System.out.println("\n--- Відсортований масив (вага верх, рейтинг низ): ---");
+        printArray(equipmentArray);
+
+        SportsEquipment target = new SportsEquipment("Волейбольний м'яч", "Волейбол", 950.00, 420, 3);
+        System.out.println("\nОб'єкт для пошуку: " + target);
+
+        int foundIndex = -1;
+        for (int i = 0; i < equipmentArray.length; i++) {
+            if (equipmentArray[i].equals(target)) {
+                foundIndex = i;
+                break;
+            }
+        }
+
+        if (foundIndex != -1) {
+            System.out.println("Результат: Об'єкт знайдено в масиві за індексом " + foundIndex);
+        } else {
+            System.out.println("Результат: Об'єкт не знайдено в масиві.");
+        }
+    }
+
+    private static void printArray(SportsEquipment[] array) {
+        for (SportsEquipment item : array) {
+            System.out.println(item);
         }
     }
 }
