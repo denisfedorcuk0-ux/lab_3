@@ -1,4 +1,4 @@
-name: Generate Javadoc and Deploy to Pages
+name: lab_3
 
 on:
   push:
