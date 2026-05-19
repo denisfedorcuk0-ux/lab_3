@@ -2,19 +2,19 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * Головний виконавчий клас програми для демонстрації роботи з масивами об'єктів.
- * Виконує створення, двокритеріальне сортування та лінійний пошук елементів
- * у масиві спортивного інвентарю.
+ * Main executive class of the program to demonstrate operations with arrays of objects.
+ * Performs creation, two-criteria sorting, and linear search of elements
+ * within an array of sports equipment.
  *
- * @author Денис
+ * @author Denis
  * @version 1.0
  */
 public class Main {
 
     /**
-     * Головний метод програми, який є точкою входу.
+     * Main method of the program, which serves as the entry point.
      *
-     * @param args масив аргументів командного рядка
+     * @param args the command-line arguments array
      */
     public static void main(String[] args) {
         SportsEquipment[] equipmentArray = {
@@ -26,7 +26,7 @@ public class Main {
                 new SportsEquipment("М'яч для регбі", "Регбі", 1400.00, 420, 4)
         };
 
-        System.out.println("--- Початковий масив об'єктів: ---");
+        System.out.println("--- Initial array of objects: ---");
         printArray(equipmentArray);
 
         Arrays.sort(equipmentArray, Comparator
@@ -34,11 +34,11 @@ public class Main {
                 .thenComparing(Comparator.comparingInt(SportsEquipment::getRating).reversed())
         );
 
-        System.out.println("\n--- Відсортований масив (вага верх, рейтинг низ): ---");
+        System.out.println("\n--- Sorted array (weight ascending, rating descending): ---");
         printArray(equipmentArray);
 
         SportsEquipment target = new SportsEquipment("Волейбольний м'яч", "Волейбол", 950.00, 420, 3);
-        System.out.println("\nОб'єкт для пошуку: " + target);
+        System.out.println("\nTarget object to search for: " + target);
 
         int foundIndex = -1;
         for (int i = 0; i < equipmentArray.length; i++) {
@@ -49,17 +49,17 @@ public class Main {
         }
 
         if (foundIndex != -1) {
-            System.out.println("Результат: Об'єкт знайдено в масиві за індексом " + foundIndex);
+            System.out.println("Result: Object found in the array at index " + foundIndex);
         } else {
-            System.out.println("Результат: Об'єкт не знайдено в масиві.");
+            System.out.println("Result: Object not found in the array.");
         }
     }
 
     /**
-     * Виводит у консоль усі елементи переданого масиву спортивного інвентарю.
-     * Кожен об'єкт відображається у новому рядку за допомогою свого методу toString().
+     * Prints all elements of the provided sports equipment array to the console.
+     * Each object is displayed on a new line using its toString() method.
      *
-     * @param array масив об'єктів {@link SportsEquipment}, який необхідно вивести
+     * @param array the array of {@link SportsEquipment} objects to be printed
      */
     private static void printArray(SportsEquipment[] array) {
         for (SportsEquipment item : array) {

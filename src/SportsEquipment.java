@@ -1,10 +1,10 @@
 import java.util.Objects;
 
 /**
- * Клас, що представляє одиницю спортивного інвентарю.
- * Містить інформацію про назву, категорію, вартість, вагу та рейтинг популярності товару.
+ * Represents a piece of sports equipment.
+ * Contains information about the name, category, price, weight, and popularity rating of the product.
  *
- * @author Денис
+ * @author Denis
  * @version 1.0
  */
 public class SportsEquipment {
@@ -15,13 +15,13 @@ public class SportsEquipment {
     private final int rating;
 
     /**
-     * Конструктор для створення нового об'єкта спортивного інвентарю.
+     * Constructs a new SportsEquipment object.
      *
-     * @param name        назва інвентарю
-     * @param category    категорія спорту, до якої належить предмет
-     * @param price       вартість одиниці товару
-     * @param weightGrams вага інвентарю в грамах
-     * @param rating      рейтинг популярності від 1 до 5
+     * @param name        the name of the equipment
+     * @param category    the sports category the item belongs to
+     * @param price       the unit price of the item
+     * @param weightGrams the weight of the equipment in grams
+     * @param rating      the popularity rating from 1 to 5
      */
     public SportsEquipment(String name, String category, double price, int weightGrams, int rating) {
         this.name = name;
@@ -32,56 +32,56 @@ public class SportsEquipment {
     }
 
     /**
-     * Повертає назву інвентарю.
+     * Returns the name of the equipment.
      *
-     * @return назва товару
+     * @return the product name
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Повертає категорію інвентарю.
+     * Returns the category of the equipment.
      *
-     * @return спортивна категорія товару
+     * @return the sports category of the product
      */
     public String getCategory() {
         return category;
     }
 
     /**
-     * Повертає вартість інвентарю.
+     * Returns the price of the equipment.
      *
-     * @return ціна товару
+     * @return the product price
      */
     public double getPrice() {
         return price;
     }
 
     /**
-     * Повертає вагу інвентарю в грамах.
+     * Returns the weight of the equipment in grams.
      *
-     * @return вага предмета
+     * @return the item weight
      */
     public int getWeightGrams() {
         return weightGrams;
     }
 
     /**
-     * Повертає рейтинг популярності інвентарю.
+     * Returns the popularity rating of the equipment.
      *
-     * @return оцінка рейтингу
+     * @return the rating score
      */
     public int getRating() {
         return rating;
     }
 
     /**
-     * Перевіряє рівність поточного об'єкта з іншим об'єктом.
-     * Порівняння відбувається за всіма п'ятьма полями класу.
+     * Indicates whether some other object is "equal to" this one.
+     * Comparison is performed across all five fields of the class.
      *
-     * @param o об'єкт для порівняння з поточним
-     * @return {@code true}, якщо об'єкти ідентичні; {@code false} в іншому випадку
+     * @param o the reference object with which to compare
+     * @return {@code true} if the objects are identical; {@code false} otherwise
      */
     @Override
     public boolean equals(Object o) {
@@ -100,10 +100,10 @@ public class SportsEquipment {
     }
 
     /**
-     * Обчислює та повертає хеш-код для поточного об'єкта.
-     * Хеш-код базується на значеннях усіх полів класу.
+     * Returns a hash code value for the object.
+     * The hash code is based on the values of all fields in the class.
      *
-     * @return значення хеш-коду
+     * @return the hash code value
      */
     @Override
     public int hashCode() {
@@ -111,9 +111,9 @@ public class SportsEquipment {
     }
 
     /**
-     * Повертає текстове представлення об'єкта спортивного інвентарю.
+     * Returns a string representation of the sports equipment object.
      *
-     * @return рядок із форматованими даними про всі властивості об'єкта
+     * @return a formatted string containing all properties of the object
      */
     @Override
     public String toString() {
