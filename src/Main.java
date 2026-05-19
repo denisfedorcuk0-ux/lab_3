@@ -1,9 +1,21 @@
-
 import java.util.Arrays;
 import java.util.Comparator;
 
+/**
+ * Головний виконавчий клас програми для демонстрації роботи з масивами об'єктів.
+ * Виконує створення, двокритеріальне сортування та лінійний пошук елементів
+ * у масиві спортивного інвентарю.
+ *
+ * @author Денис
+ * @version 1.0
+ */
 public class Main {
 
+    /**
+     * Головний метод програми, який є точкою входу.
+     *
+     * @param args масив аргументів командного рядка
+     */
     public static void main(String[] args) {
         SportsEquipment[] equipmentArray = {
                 new SportsEquipment("Футбольний м'яч", "Футбол", 1200.00, 420, 5),
@@ -43,6 +55,12 @@ public class Main {
         }
     }
 
+    /**
+     * Виводит у консоль усі елементи переданого масиву спортивного інвентарю.
+     * Кожен об'єкт відображається у новому рядку за допомогою свого методу toString().
+     *
+     * @param array масив об'єктів {@link SportsEquipment}, який необхідно вивести
+     */
     private static void printArray(SportsEquipment[] array) {
         for (SportsEquipment item : array) {
             System.out.println(item);
