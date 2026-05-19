@@ -13,6 +13,9 @@
 
 ---
 
+## Посилання на документацію
+https://denisfedorcuk0-ux.github.io/lab_3/package-summary.html
+
 ## Опис реалізації
 
 Клас 'SportsEquipment'\
