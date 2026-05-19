@@ -1,18 +1,24 @@
-name: lab3
+name: Build, Test and Deploy Javadoc to Pages
 
 on:
   push:
-    branches: [ "main", "master" ]
-  pull_request:
-    branches: [ "main", "master" ]
+    branches: ["main", "master"]
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  build:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     steps:
@@ -29,27 +35,17 @@ jobs:
       - name: Build and run tests
         run: mvn clean test
 
-
       - name: Generate Javadoc
         run: mvn javadoc:javadoc
 
-
       - name: Setup Pages
-        uses: actions/configure-pages@v4
-
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: target/site/apidocs
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
