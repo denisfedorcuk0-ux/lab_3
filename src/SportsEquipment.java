@@ -4,8 +4,6 @@ import java.util.Objects;
  * Represents a piece of sports equipment.
  * Contains information about the name, category, price, weight, and popularity rating of the product.
  *
- * @author Denis
- * @version 1.0
  */
 public class SportsEquipment {
     private final String name;
