@@ -1,21 +1,9 @@
 import java.util.Arrays;
 import java.util.Comparator;
 
-/**
- * Main executive class of the program to demonstrate operations with arrays of objects.
- * Performs creation, two-criteria sorting, and linear search of elements
- * within an array of sports equipment.
- *
- * @author Denis
- * @version 1.0
- */
 public class Main {
 
-    /**
-     * Main method of the program, which serves as the entry point.
-     *
-     * @param args the command-line arguments array
-     */
+  
     public static void main(String[] args) {
         SportsEquipment[] equipmentArray = {
                 new SportsEquipment("Футбольний м'яч", "Футбол", 1200.00, 420, 5),
@@ -55,12 +43,7 @@ public class Main {
         }
     }
 
-    /**
-     * Prints all elements of the provided sports equipment array to the console.
-     * Each object is displayed on a new line using its toString() method.
-     *
-     * @param array the array of {@link SportsEquipment} objects to be printed
-     */
+
     private static void printArray(SportsEquipment[] array) {
         for (SportsEquipment item : array) {
             System.out.println(item);
