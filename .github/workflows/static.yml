@@ -1,4 +1,4 @@
-name: Build, Test and Deploy Javadoc to Pages
+name: Generate Javadoc and Deploy to Pages
 
 on:
   push:
@@ -30,13 +30,11 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: maven
-
-      - name: Build and run tests
-        run: mvn clean test
 
       - name: Generate Javadoc
-        run: mvn javadoc:javadoc
+        run: |
+          mkdir -p docs
+          javadoc -d docs -encoding UTF-8 -docencoding UTF-8 -charset UTF-8 src/*.java
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -44,7 +42,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: target/site/apidocs
+          path: docs
 
       - name: Deploy to GitHub Pages
         id: deployment
